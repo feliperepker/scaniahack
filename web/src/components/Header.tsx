@@ -17,7 +17,7 @@ export function Header(){
           <div className="h-16 w-[1px] ml-4 bg-[#193458] "/>
           <Link className="flex items-center border-[#193458] justify-center h-16 w-28 text-gray-200 border-r-[1px] bg-[#041E42] text-[17px] font-scaniaCondensed font-medium transition-all hover:bg-blue-300/[0.1]" to={'/ControlTower'}>Find</Link>
           <Link className= " flex border-[#193458] items-center justify-center h-16 w-28 text-gray-200 border-r-[1px] bg-[#041E42] text-[17px] font-scaniaCondensed font-medium transition-all hover:bg-blue-300/[0.1]" to={'/Supplier'}>Supplier</Link>
-          
+          <Link className= " flex border-[#193458] items-center justify-center h-16 w-52 text-gray-200 border-r-[1px] bg-[#041E42] text-[17px] font-scaniaCondensed font-medium transition-all hover:bg-blue-300/[0.1]" to={'/SupplierDatas'}>Supplier Informations</Link>
         </div>
       <div className="flex items-center justify-center">
         <button className=" flex border-[#193458] items-center justify-center h-16 w-20 text-gray-200 border-r-[1px] bg-[#041E42] text-[17px] font-scaniaCondensed font-medium transition-all hover:bg-blue-300/[0.1]" onClick={getLogout}>Logout</button>

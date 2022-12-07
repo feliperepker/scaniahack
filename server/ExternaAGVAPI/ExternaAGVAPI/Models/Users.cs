@@ -12,6 +12,8 @@ namespace ExternaAGVAPI.Models
         public string Password { get; set; }
         [Required]
         public string Role { get; set; }
+        [Required]
+        public string Nome { get; set; }
 
     }
 }

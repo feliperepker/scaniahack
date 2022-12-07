@@ -2,6 +2,7 @@
 using ExternaAGVAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FindMyPart.Migrations
 {
     [DbContext(typeof(FindMyPartsContext))]
-    partial class FindMyPartsContextModelSnapshot : ModelSnapshot
+    [Migration("20221207111535_supplier")]
+    partial class supplier
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

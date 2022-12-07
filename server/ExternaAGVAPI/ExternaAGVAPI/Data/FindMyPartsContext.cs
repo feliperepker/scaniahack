@@ -15,5 +15,6 @@ namespace ExternaAGVAPI.Data
         public DbSet<PartSuecia> tb_monasuecia{ get; set; }
         public DbSet<PartHolanda> tb_monaholanda{ get; set; }
         public DbSet<PartPrototipo> tb_monaprototipo { get; set; }
+        public DbSet<Supplier> tb_suppliers{ get; set; }
     }
 }

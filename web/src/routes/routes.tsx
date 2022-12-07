@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { ControlTower } from "../pages/ControlTower";
 import { Login } from "../pages/Login";
+import { SupInformations } from "../pages/SupInformations";
 import { Supplier } from "../pages/Supplier";
 import { isAuthenticated } from "../services/auth";
 
@@ -18,6 +19,7 @@ export function AppRoutes(){
         <Route element={<PrivateRoutes/>}>
           <Route element={<ControlTower/>} path="/controltower"/>
           <Route element={<Supplier/>} path="/supplier"/>
+          <Route element={<SupInformations/>} path="/supplierdatas"/>
         </Route>
       </Routes>
     
