@@ -53,12 +53,17 @@ async function updateData(){
 
   return(
     <div className="w-screen flex flex-col items-center">
+      <h1 className="font-bold font-scaniaHeadline mt-8 text-3xl">Here is a Relation Between your Parts and your Stock</h1>
       <table className="w-[80%] max-w-[800px] mt-20">
         <thead>
           <tr >
-            <th colSpan={2}  className="bg-[#041E42] border-[1px] border-[#041E42] text-white h-11 font-scaniaCondensed font-medium">
-                Here is a Relation Between your Parts and your Stock
+            <th colSpan={2}  className="bg-[#041E42] border-[1px] border-[#041E42] border-b-white text-white h-11 font-scaniaCondensed font-medium">
+                You are assign this as: {data.username}
             </th>
+          </tr>
+          <tr>
+            <th className="bg-[#041E42] border-[1px] border-[#041E42] border-r-white text-white h-11 font-scaniaCondensed font-medium">Part Number</th>
+            <th className="bg-[#041E42] border-[1px] border-[#041E42] text-white h-11 font-scaniaCondensed font-medium">Quantity</th>
           </tr>
         </thead>
         

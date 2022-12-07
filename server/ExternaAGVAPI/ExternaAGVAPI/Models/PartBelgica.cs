@@ -2,7 +2,7 @@
 
 namespace FindMyPart.Models
 {
-    public class PartBrasil
+    public class PartBelgica
     {
         [Key]
         [Required]
@@ -17,6 +17,5 @@ namespace FindMyPart.Models
         public string Country { get; set; }
         [Required]
         public string Place { get; set; }
-        public string Image { get; set; }
     }
 }

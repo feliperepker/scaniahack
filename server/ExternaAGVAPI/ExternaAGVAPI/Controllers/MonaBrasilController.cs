@@ -14,14 +14,23 @@ namespace FindMyPart.Controllers
         {
             this._context = context;
         }
-
         [HttpGet("{id}")]
         public ActionResult getFromMonaBrasil(int id)
         {
-            Console.WriteLine(id);
-            Console.WriteLine("sdaaaaaaaaaaaaaaaa");
-            PartBrasil part = _context.tb_monabrazil.FirstOrDefault(part => part.PartNumber  == id.ToString());
-            return Ok(part);
+            int x = 0;
+            List<PartBrasil> part = _context.tb_brazil.Where(part => part.Peca  == id.ToString()).ToList();
+            if(part.Count > 0)
+            {
+                part.ForEach(item =>
+                {
+                    x += item.Total_Balance;
+                });
+                PartBrasil final = _context.tb_brazil.FirstOrDefault(part => part.Peca == id.ToString());
+                final.Total_Balance = x;
+                return Ok(final);
+            }
+            return Ok();
+            
         }
     }
 }

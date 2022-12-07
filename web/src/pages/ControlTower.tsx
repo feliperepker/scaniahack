@@ -1,8 +1,6 @@
 
-import { useEffect, useState } from "react";
-import { ExternalProps, Info } from "../components/Info";
+import { useState } from "react";
 import { BrasilProps, Inventory, OtherCountryProps } from "../components/Inventory";
-import { Map } from "../components/Map";
 import api from "../services/api";
 import { SupProps } from "./SupInformations";
 
@@ -11,8 +9,7 @@ export function ControlTower(){
   const [inputData, setInputData] = useState('')
   const [dataBrasil, setDataBrasil] = useState<BrasilProps>(Object)
   const [dataSuecia, setDataSuecia] = useState<OtherCountryProps>(Object)
-  const [dataHolanda, setDataHolanda] = useState<OtherCountryProps>(Object)
-  const [dataPrototipo, setDataPrototipo] = useState<OtherCountryProps>(Object)
+  const [dataBelgica, setDataBelgica] = useState<OtherCountryProps>(Object)
   const [dataSup, setDataSup] = useState<SupProps[]>([])
     console.log(inputData)
 
@@ -24,17 +21,13 @@ export function ControlTower(){
         await api.get(`/MonaSuecia/${inputData}`).then(response =>{
           setDataSuecia(response.data)
         });
-        await api.get(`/MonaPrototipo/${inputData}`).then(response =>{
-          setDataPrototipo(response.data)
-        });
-        await api.get(`/MonaHolanda/${inputData}`).then(response =>{
-          setDataHolanda(response.data)
+        await api.get(`/MonaBelgica/${inputData}`).then(response =>{
+          setDataBelgica(response.data)
         });
         await api.get(`/DataSup/${inputData}`).then(response =>{
           setDataSup(response.data)
         });
-        console.log('dataSup')
-        console.log(dataSup)
+
       }catch(err){
         alert(err)
       }
@@ -49,7 +42,7 @@ export function ControlTower(){
        ml-4 bg-green-600 rounded transition-all p-2 pl-8 pr-8 text-white font-normal font-scaniaCondensed hover:bg-green-700" onClick={getData}>FIND</button>
         <div className="flex items-baseline">
           <h2 className="text-xl font-scaniaCondensed font-bold">Part name:</h2>
-          <p className="ml-2 text-lg font-scaniaCondensed">{dataBrasil.name}</p>
+          <p className="ml-2 text-lg font-scaniaCondensed">{dataBrasil.long_Desc_Central}</p>
         </div>
         { dataBrasil.image ?
          <img className="w-[80%] h-[50vh] mt-4 border-[1px] object-cover border-gray-300" src={dataBrasil.image} alt="" /> : <h3 className="mt-4 border-[1px] flex items-center justify-center border-gray-300 w-[90%]
@@ -60,8 +53,7 @@ export function ControlTower(){
         <Inventory
         brasilData={dataBrasil}
         sueciaData={dataSuecia}
-        holandaData={dataHolanda}
-        prototipoData={dataPrototipo}
+        belgicaData={dataBelgica}
         supData={dataSup}
         />
     </div>

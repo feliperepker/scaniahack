@@ -17,8 +17,19 @@ namespace FindMyPart.Controllers
         [HttpGet("{id}")]
         public ActionResult getFromMonaSuecia(int id) 
         {
-            PartSuecia part = _context.tb_monasuecia.FirstOrDefault(part => part.PartNumber == id.ToString());
-            return Ok(part);
+            int x = 0;
+            List<PartSuecia> part = _context.tb_suecia.Where(part => part.Peca == id.ToString()).ToList();
+           if (part.Count > 0)
+            {
+                part.ForEach(item =>
+                {
+                    x += item.Total_Balance;
+                });
+                PartSuecia final = _context.tb_suecia.FirstOrDefault(part => part.Peca == id.ToString());
+                final.Total_Balance = x;
+                return Ok(final);
+            }return Ok();
+
         }
     }
 }

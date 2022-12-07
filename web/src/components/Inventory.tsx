@@ -1,45 +1,60 @@
+import { useNavigate } from "react-router-dom";
 import { SupProps } from "../pages/SupInformations";
 import { Card } from "./Card";
 
 interface DataProps{
   brasilData: BrasilProps;
   sueciaData: OtherCountryProps;
-  prototipoData: OtherCountryProps;
-  holandaData: OtherCountryProps;
+
+  belgicaData: OtherCountryProps;
   supData: SupProps[];
 }
 export interface OtherCountryProps{
-  partNumber: string;
-  quantidade: number
+  id: number;
+  peca: string;
+  long_Desc_Central: string;
+  total_Balance: number;
+  country: string;
+  place: string;
 }
 export interface BrasilProps{
-  partNumber: string;
-  name: string;
+  id: number;
+  peca: string;
+  long_Desc_Central: string;
+  total_Balance: number;
+  country: string;
+  place: string;
   image: string;
-  quantidade: number
 }
-export function Inventory({brasilData, sueciaData, prototipoData, holandaData, supData} : DataProps){
+export function Inventory({brasilData, sueciaData, belgicaData, supData} : DataProps){
+  const navigate = useNavigate()
+
+  function navigateTo(id: string){
+    navigate(`/DetailsCt?=${id}`)
+  }
   return(
     <div className="w-[50%] flex flex-col items-center mr-[10%]">
       <h2 className="font-scaniaCondensed text-3xl">Part quantity in stock</h2>
         <div className="grid grid-cols-3 w-full gap-x-20">
-          <Card
-          region="Brasil"
-          qnt={brasilData.quantidade ? String(brasilData.quantidade) : '0'}
-         />
-         <Card
-          region="Suecia"
-          qnt={sueciaData.quantidade ? String(sueciaData.quantidade) : '0'}
-         />
+          <div className="cursor-pointer" onClick={() => {navigateTo(String(brasilData.country) + "+" + String(brasilData.peca))}}>
+            <Card
+            region="Brasil"
+            qnt={brasilData.total_Balance ? String(brasilData.total_Balance) : '0'}
+            />
+          </div>
+         <div className="cursor-pointer" onClick={() => {navigateTo(String(sueciaData.country) + "+" + String(sueciaData.peca))}}>
+           <Card
+            region="Suecia"
+            qnt={sueciaData.total_Balance ? String(sueciaData.total_Balance) : '0'}
+           />
+         </div>
 
-          <Card
-          region="Holanda"
-          qnt={holandaData.quantidade ? String(holandaData.quantidade) : '0'}
-         />
-         <Card
-          region="Protótipo"
-          qnt={prototipoData.quantidade ? String(prototipoData.quantidade) : '0'}
-         />
+          <div className="cursor-pointer" onClick={() => {navigateTo(String(belgicaData.country) + "+" + String(belgicaData.peca))}}>
+            <Card
+            region="Belgica"
+            qnt={belgicaData.total_Balance ? String(belgicaData.total_Balance) : '0'}
+          />
+          </div>
         {
           supData.map(supCard => {
            return( <Card

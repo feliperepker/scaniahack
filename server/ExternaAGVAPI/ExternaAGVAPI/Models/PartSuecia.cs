@@ -6,8 +6,17 @@ namespace FindMyPart.Models
     {
         [Key]
         [Required]
-        public string PartNumber { get; set; }
+        public int Id { get; set; }
         [Required]
-        public int Quantidade { get; set; }
+        public string Peca { get; set; }
+        [Required]
+        public string Long_Desc_Central{ get; set; }
+        [Required]
+        public int Total_Balance { get; set; }
+        [Required]
+        public string Country { get; set; }
+        [Required]
+        public string Place { get; set; }
+        
     }
 }

@@ -45,62 +45,96 @@ namespace FindMyPart.Migrations
                     b.ToTable("tb_users");
                 });
 
+            modelBuilder.Entity("FindMyPart.Models.PartBelgica", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Long_Desc_Central")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Peca")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Total_Balance")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tb_monabelgica");
+                });
+
             modelBuilder.Entity("FindMyPart.Models.PartBrasil", b =>
                 {
-                    b.Property<string>("PartNumber")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Long_Desc_Central")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Quantidade")
+                    b.Property<string>("Peca")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Total_Balance")
                         .HasColumnType("int");
 
-                    b.HasKey("PartNumber");
+                    b.HasKey("Id");
 
                     b.ToTable("tb_monabrazil");
                 });
 
-            modelBuilder.Entity("FindMyPart.Models.PartHolanda", b =>
-                {
-                    b.Property<string>("PartNumber")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.HasKey("PartNumber");
-
-                    b.ToTable("tb_monaholanda");
-                });
-
-            modelBuilder.Entity("FindMyPart.Models.PartPrototipo", b =>
-                {
-                    b.Property<string>("PartNumber")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.HasKey("PartNumber");
-
-                    b.ToTable("tb_monaprototipo");
-                });
-
             modelBuilder.Entity("FindMyPart.Models.PartSuecia", b =>
                 {
-                    b.Property<string>("PartNumber")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<int>("Quantidade")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.HasKey("PartNumber");
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Long_Desc_Central")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Peca")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Place")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Total_Balance")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("tb_monasuecia");
                 });
