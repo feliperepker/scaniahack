@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face { font-family: ScaniaHeadline; src: url('./src/assets/ScaniaSansHeadline-Regular.woff'); } 
+@font-face { font-family: ScaniaCondensed; src: url('./src/assets/ScaniaSansCondensed-Regular.woff'); }
